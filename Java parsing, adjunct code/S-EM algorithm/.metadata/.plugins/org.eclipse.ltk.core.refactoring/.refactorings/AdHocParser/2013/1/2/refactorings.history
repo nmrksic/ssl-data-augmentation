@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;i&apos; in &apos;parser.main(...)&apos; to &apos;j&apos;&#x0D;&#x0A;- Original project: &apos;AdHocParser&apos;&#x0D;&#x0A;- Original element: &apos;parser.main(String[]).i&apos;&#x0D;&#x0A;- Renamed element: &apos;i&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;i&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{parser.java[parser~main~\[QString;@i!1609!1617!1613!1613!I!0!false" name="j" references="true" stamp="1357642553402" version="1.0"/>
+</session>

@@ -1,0 +1,213 @@
+Comparison of SSL Methods' performance with different data sets:
+
+I Reuters data set: 
+
+1. S-EM:
+
+>> [Result, RN] = SpyEM(ReutersFeatureMatrix, 1:200, 201:length(ReutersLabels));
+
+[pr, rc, f] = qualityOfClassifier(binarizePosteriors(Result), tempres)
+
+[pr, rc, f] =   0.9400    0.9192    0.9295
+
+
+
+2. Bayesian Set:
+
+>> Result = BayesianSet(ReutersFeatureMatrix, 1:200, 2);
+
+[SortedIndices, SortedRank] = produceRankingDirect( Result, 1:length(ReutersLabels), 10);
+
+>> PrN = precisionAtN(SortedIndices, tempres, sum(tempres));
+>> PrN
+
+
+
+
+PrN =
+
+    0.9747 % of the first N in the output, where N is the number of actual positives, we've got this percent of actual positives! Impressive!
+
+>> sum(Res2)
+
+ans =  3151
+
+>> PrN = precisionAtN(SortedIndices, tempres, 3151);
+>> PrN
+
+PrN =  1 % of the number identified as positives by sEM ( with only 94% precision), Bayesian sets do not make an error at all - they extract only positives!!
+
+>> sum(tempres) % the number of actual positives, 
+
+ans = 3713
+
+>> PrN = precisionAtN(SortedIndices, tempres, 3600);
+>> PrN
+
+PrN = 0.9875
+
+
+3. RocSVM (still!) demands more memory and CPU power than I can provide. TODO
+
+
+
+II 20Newsgroups data set:
+
+1. S-EM:
+
+>> [Results, RN] = SpyEM(FeatureMatrix, 1:10, 11:length(trueLabels));
+>> [pr, rc, f] = qualityOfClassifier(binarizePosteriors(Results), trueLabels);
+>> [pr, rc, f]  =   0.3769    0.4759    0.4206
+
+
+>> [Results, RN] = SpyEM(FeatureMatrix, 1:200, 201:length(trueLabels));
+>> [pr, rc, f] = qualityOfClassifier(binarizePosteriors(Results), trueLabels)
+[pr, rc, f]  = 0.8698  0.8920   0.8808 
+
+
+>> [Results, RN] = SpyEM(FeatureMatrix, 1:2000, 2001:length(trueLabels));
+>> [pr, rc, f] = qualityOfClassifier(binarizePosteriors(Results), trueLabels);
+>> [pr, rc, f] =  0.8608    0.9055    0.8826
+
+
+>> [Results, RN] = SpyEM(FeatureMatrix, 1:4000, 4001:length(trueLabels));
+>> [pr, rc, f] = qualityOfClassifier(binarizePosteriors(Results), trueLabels);
+>> [pr, rc, f] =  0.8694    0.9262    0.8969
+
+2. Bayesian Sets:
+
+score10 = BayesianSet(FeatureMatrix', 1:10, 2);
+>> [SortedIndices, SortedRank] = produceRankingDirect( score10, 1:length(trueLabels), 0);
+>> PrN = precisionAtN(SortedIndices, trueLabels, 4605);
+>> PrN = 0.5768
+
+Precision@N is more of a measure of recall, i.e. this is the proportion it would extract if it knew the number of positive classes.
+
+TODO: The whole issue of comparing Precision@N with pr, rc, f-score needs examination. If we compare any of them to PrN - how do we choose N???
+
+
+score200 = BayesianSet(FeatureMatrix', 1:200, 2);
+>> [SortedIndices, SortedRank] = produceRankingDirect( score200, 1:length(trueLabels), 0);
+>> PrN = precisionAtN(SortedIndices, trueLabels, 4605)
+
+PrN =  0.7233
+
+score2000 = BayesianSet(FeatureMatrix', 1:2000, 2);
+>> [SortedIndices, SortedRank] = produceRankingDirect( score2000, 1:length(trueLabels), 0);
+>> PrN = precisionAtN(SortedIndices, trueLabels, 4605)
+
+PrN = 0.8035
+
+score4000 = BayesianSet(FeatureMatrix', 1:4000, 2);
+>> [SortedIndices, SortedRank] = produceRankingDirect( score4000, 1:length(trueLabels), 0);
+>> PrN = precisionAtN(SortedIndices, trueLabels, 4605)
+
+PrN =  0.8287
+
+
+3.1 RocSVM - with a KKD threshold of 0.9 - around 30s to converge:
+
+>> [Results, RN] = RocSVM(FeatureMatrix, 1:10, 11:length(trueLabels));
+>> [pr, rc, f] = qualityOfClassifier(binarizePosteriors(Results), trueLabels);
+>> [pr, rc, f] = 0.6190    0.5036    0.5553
+
+
+>> [Results, RN] = RocSVM(FeatureMatrix, 1:200, 201:length(trueLabels));
+>> [pr, rc, f] = qualityOfClassifier(binarizePosteriors(Results), trueLabels);
+>> [pr, rc, f] =  0.7104    0.6389    0.6727
+
+
+>> [Results, RN] = RocSVM(FeatureMatrix, 1:2000, 2001:length(trueLabels));
+>> [pr, rc, f] = qualityOfClassifier(binarizePosteriors(Results), trueLabels);
+>> [pr, rc, f] = 0.8297    0.8262    0.8279
+
+
+>> [Results, RN] = RocSVM(FeatureMatrix, 1:4000, 4001:length(trueLabels));
+>> [pr, rc, f] = qualityOfClassifier(binarizePosteriors(Results), trueLabels);
+>> [pr, rc, f] =   0.8653    0.9187    0.8912
+
+>> [Results, RN] = RocSVM(FeatureMatrix, 1:4000, 4001:length(trueLabels), 0.9);
+>> [pr, rc, f] = qualityOfClassifier(binarizePosteriors(Results), trueLabels);
+>> [pr, rc, f] =  0.8708    0.9234    0.8964
+
+.. another [pr, rc, f] = 0.8619    0.9163    0.8883
+
+3.2 RocSVM - with a KKD threshold of 0.5 - takes ~5-10 min to converge:
+ 
+[Results, RN] = RocSVM(FeatureMatrix, 1:10, 11:length(trueLabels), 0.5);
+>> [pr, rc, f] = qualityOfClassifier(binarizePosteriors(Results), trueLabels);
+>> [pr, rc, f] = 0.5551    0.5038    0.5282
+
+
+Example of an empty cluster arising in k-means clustering after Rocchio:
+No impact!
+
+[Results, RN] = RocSVM(FeatureMatrix, 1:200, 201:length(trueLabels), 0.5);
+Warning: Empty cluster created at iteration 1. 
+> In kmeans>batchUpdate at 383
+  In kmeans at 280
+  In RocSVM at 30 
+>> [pr, rc, f] = qualityOfClassifier(binarizePosteriors(Results), trueLabels);
+>> [pr, rc, f] =  0.8627    0.5217    0.6502
+
+>> [Results, RN] = RocSVM(FeatureMatrix, 1:200, 201:length(trueLabels), 0.5);
+>> [pr, rc, f] = qualityOfClassifier(binarizePosteriors(Results), trueLabels);
+>> [pr, rc, f] = 0.8592    0.5253    0.6520
+
+
+Again, example of an empty cluster: 
+>> [Results, RN] = RocSVM(FeatureMatrix, 1:2000, 2001:length(trueLabels), 0.5);
+Warning: Empty cluster created at iteration 1. 
+> In kmeans>batchUpdate at 383
+  In kmeans at 280
+  In RocSVM at 30 
+>> [pr, rc, f] = qualityOfClassifier(binarizePosteriors(Results), trueLabels);
+>> [pr, rc, f]  =  0.8583    0.8471    0.8527
+
+[Results, RN] = RocSVM(FeatureMatrix, 1:2000, 2001:length(trueLabels), 0.5);
+>> [pr, rc, f] = qualityOfClassifier(binarizePosteriors(Results), trueLabels);
+>> [pr, rc, f]
+
+ans = 0.9079    0.7325    0.8109
+
+
+>> [Results, RN] = RocSVM(FeatureMatrix, 1:4000, 4001:length(trueLabels), 0.5);
+>> [pr, rc, f] = qualityOfClassifier(binarizePosteriors(Results), trueLabels);
+>> [pr, rc, f] =  0.9022    0.9364    0.9190
+
+[Results, RN] = RocSVM(FeatureMatrix, 1:4000, 4001:length(trueLabels), 0.5);
+>> [pr, rc, f] = qualityOfClassifier(binarizePosteriors(Results), trueLabels);
+>> [pr, rc, f] =  0.8880    0.9310    0.9090
+
+
+In general, and as we can see from this data, there's a very high degree of variability in results obtained with rocSVM - I believe this is due to different scenarios occuring in the k-means clustering. TODO: Examine these effects.
+
+
+SVM New with threshold 0.8 and distinguishing between classifiers:
+
+[Results, RN, Classifier, FirstResults, FirstClassifier] = RocSVM(FeatureMatrix, 1:200, 201:length(trueLabels), 0.8);
+
+Reverted to original classifier - SVM iterations converged with 0.475
+
+[pr, rc, f] = qualityOfClassifier(FirstResults, trueLabels)
+
+[pr, rc, f] =  0.6568   0.6835  0.6699
+
+Using the final classifier didn't always produce better results: 
+
+[pr, rc, f] = qualityOfClassifier(FirstResults, trueLabels)
+ 
+[pr, rc, f] =  0.6973   0.7426   0.7193
+
+[pr, rc, f] = qualityOfClassifier(Results, trueLabels)
+
+[pr, rc, f] =  0.6799   0.6843   0.6821
+
+>> [Results, RN, Classifier, FirstResults, FirstClassifier] = RocSVM(FeatureMatrix, 1:2000, 2001:length(trueLabels), 0.8);
+
+Using the final classifier. SVM iterations converged with 0.9845
+
+[pr, rc, f] = qualityOfClassifier(Results, trueLabels);
+>> [pr, rc, f]
+
+ans =     0.6722    0.6645    0.6683

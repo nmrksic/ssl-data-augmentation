@@ -1,0 +1,18 @@
+import net.sf.classifier4J.bayesian.BayesianClassifier;
+import net.sf.classifier4J.bayesian.SimpleWordsDataSource;
+
+
+public class SEM {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		SimpleWordsDataSource swds = new SimpleWordsDataSource();
+		
+		BayesianClassifier bc = new BayesianClassifier();
+		
+	}
+
+}

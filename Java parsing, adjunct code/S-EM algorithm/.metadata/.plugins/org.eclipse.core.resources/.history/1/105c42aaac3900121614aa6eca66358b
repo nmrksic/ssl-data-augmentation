@@ -1,0 +1,16 @@
+import net.sf.classifier4J.bayesian.BayesianClassifier;
+
+
+public class SEM {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		System.out.println("odjeb");
+		BayesianClassifier bc = new BayesianClassifier();
+		
+	}
+
+}

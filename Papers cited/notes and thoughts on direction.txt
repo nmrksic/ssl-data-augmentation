@@ -1,0 +1,36 @@
+DATA: 
+
+http://archive.ics.uci.edu/ml/
+
+http://www.cs.nyu.edu/~roweis/data.html
+
+
+
+Stuff:
+
+http://www.cs.uic.edu/~liub/LPU/LPU-download.html
+
+a platform doing PU learning with Rochio/Spy/SVM/EM. Could be useful.
+
+TODO list:
+
+TODO: Explore SVM/Rocchio as a third possibility and the papers written by Bing Liu. ICDM03 explains it. IN ADDITION to 2.1, 2.2, 2.3, it is the crucial work in the area of PU learning!!
+
+TODO: Explore the Iterative Bayes algorithm, the whole idea of bootstrapping Bayesian sets.
+
+TODO: Potential negative effects of PN learning and cases when PU might be a superior approach
+
+
+TODO: LGN algorithm, Bing, 2007, suggests using artificial negatives as an alternative in training the NB classifier in S-EM?? IJCAI-07
+
+http://answers.google.com/answers/threadview/id/225316.html seems like a good discussion of various IR techniques
+
+
+IJCAI11 provides even further guidance on this front....
+
+
+Classifier4J for Java seems to be something that would be adequate for implementing the NB-based PU learning algorithms
+
+Letham, growing a list - recommended by Zoubin, READ!!!
+
+Letham: Results about applicability of Bayesian sets even when the underlying independence assumption is violated. 

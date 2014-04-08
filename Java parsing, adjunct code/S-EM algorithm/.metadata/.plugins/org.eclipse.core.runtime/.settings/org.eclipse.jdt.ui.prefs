@@ -1,0 +1,20 @@
+#Tue Jan 08 12:17:18 CET 2013
+content_assist_proposals_foreground=0,0,0
+spelling_locale_initialized=true
+org.eclipse.jdt.ui.text.templates_migrated=true
+useAnnotationsPrefPage=true
+eclipse.preferences.version=1
+org.eclipse.jface.textfont=1|Consolas|10.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
+tabWidthPropagated=true
+org.eclipse.jdt.ui.editor.tab.width=
+fontPropagated=true
+org.eclipse.jdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.jdt.ui.javadoclocations.migrated=true
+proposalOrderMigrated=true
+org.eclipse.jdt.ui.formatterprofiles.version=12
+content_assist_proposals_background=255,255,255
+content_assist_number_of_computers=14
+useQuickDiffPrefPage=true
+org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.io.InputStream"><rhs name\="java.io.FileInputStream"/></lhs><lhs name\="java.io.Closeable"><rhs name\="java.io.FileInputStream"/><rhs name\="java.io.BufferedReader"/><rhs name\="java.io.FileWriter"/><rhs name\="java.io.PrintWriter"/></lhs><lhs name\="java.lang.AutoCloseable"><rhs name\="java.io.FileInputStream"/><rhs name\="java.io.BufferedReader"/><rhs name\="java.io.FileWriter"/><rhs name\="java.io.PrintWriter"/></lhs><lhs name\="java.io.FileInputStream"><rhs name\="java.io.FileInputStream"/></lhs><lhs name\="java.io.Reader"><rhs name\="java.io.BufferedReader"/></lhs><lhs name\="java.lang.Readable"><rhs name\="java.io.BufferedReader"/></lhs><lhs name\="java.io.BufferedReader"><rhs name\="java.io.BufferedReader"/></lhs><lhs name\="java.util.List"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.RandomAccess"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.lang.Cloneable"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.Collection"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.lang.Iterable"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.AbstractList"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.AbstractCollection"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.ArrayList"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.io.OutputStreamWriter"><rhs name\="java.io.FileWriter"/></lhs><lhs name\="java.io.Writer"><rhs name\="java.io.FileWriter"/><rhs name\="java.io.PrintWriter"/></lhs><lhs name\="java.lang.Appendable"><rhs name\="java.io.FileWriter"/><rhs name\="java.io.PrintWriter"/></lhs><lhs name\="java.io.Flushable"><rhs name\="java.io.FileWriter"/><rhs name\="java.io.PrintWriter"/></lhs><lhs name\="java.io.FileWriter"><rhs name\="java.io.FileWriter"/></lhs><lhs name\="java.io.PrintWriter"><rhs name\="java.io.PrintWriter"/></lhs></history>
+org.eclipse.jdt.ui.text.code_templates_migrated=true

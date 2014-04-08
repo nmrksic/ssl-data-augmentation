@@ -1,0 +1,80 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+
+public class parser {
+
+	/**
+	 * @param args
+	 * @throws FileNotFoundException 
+	 */
+	
+	  public static String deserializeString(File file)
+			  throws IOException {
+			      int len;
+			      char[] chr = new char[4096];
+			      final StringBuffer buffer = new StringBuffer();
+			      final FileReader reader = new FileReader(file);
+			      try {
+			          while ((len = reader.read(chr)) > 0) {
+			              buffer.append(chr, 0, len);
+			          }
+			      } finally {
+			          reader.close();
+			      }
+			      return buffer.toString();
+			  }
+
+			
+	
+	public static void main(String[] args) throws IOException {
+
+		String data = deserializeString(new File("src/u.item"));
+		System.out.println(data.length());
+
+		ArrayList<String> classifier = new ArrayList<String>();
+		int i = 0;
+		
+		System.out.println(data);
+		
+		
+		while(data.length()>0) {
+			
+			int idx = data.indexOf('\n');
+			System.out.println(idx);
+			if(idx==0) break;
+			
+			String curr = data.substring(0, idx);
+			data = data.substring(idx+1);
+
+			
+			char x[] = curr.toCharArray();
+			
+			int features[19];
+			
+			int len = x.length-1;
+			
+			int count = 18;
+			
+			while(count >= 0&&len>=0) {
+			
+				if(x[len]=='1'||x[len]=='0') { features[count] = x[len]-'0'; count--; }
+				len--;
+				
+			}
+			
+		
+			System.out.println(curr+ i++);
+			
+		}
+		
+		
+		
+	}
+
+}

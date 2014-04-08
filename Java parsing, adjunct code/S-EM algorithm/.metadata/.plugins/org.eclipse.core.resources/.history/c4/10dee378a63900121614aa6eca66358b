@@ -1,0 +1,15 @@
+import java.io.InputStreamReader;
+
+
+public class SEM {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+
+		System.out.println("kurac");
+		
+	}
+
+}

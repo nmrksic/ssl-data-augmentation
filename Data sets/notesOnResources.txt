@@ -1,0 +1,10 @@
+Sources of data:
+
+http://www.cs.nyu.edu/~roweis/data.html
+
+http://archive.ics.uci.edu/ml/index.html
+
+
+http://www.inf.ed.ac.uk/teaching/courses/dme/html/datasets0405.html !!!
+
+http://www.cad.zju.edu.cn/home/dengcai/Data/TextData.html

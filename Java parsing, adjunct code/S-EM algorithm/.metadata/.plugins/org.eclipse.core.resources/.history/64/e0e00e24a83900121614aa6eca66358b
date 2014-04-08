@@ -1,0 +1,18 @@
+import net.sf.javaml.core.Dataset;
+import net.sf.javaml.classification.*;;
+
+public class SEM {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		System.out.println("odjeb");
+		
+		Dataset data;
+		NaiveBayesClassifier nbClass;
+		
+	}
+
+}

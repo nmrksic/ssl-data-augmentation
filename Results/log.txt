@@ -1,0 +1,80 @@
+Work log:
+
+1. For each of the data sets, construct three different reduced datasets, each with their respective unlabeled set - which is the rest of the train set: keep the distribution of positives approximately the same in reduced train and train, for now.
+
+At this stage, we might still be able to utilise the fact that the non-positives in the label
+
+>> redux1_kdd_Labels = redux1_kdd_Labels';
+>> %now we also need to construct the unlabeled set
+>> positiveset = ones(size(kddTestFM,1));
+>> positiveset = ones(1, size(kddTrainFM,1));
+>> %[redux1_kdd_FM, redux1_kdd_Labels] = prepareData(kddTrainFM, 1:10:42, 43:10:1909, kddTrainLabels);
+>> positiveset(1:10:42) = 0;
+>> positiveset(43:10:1909) = 0;
+>> pos = LabelToArray(positiveset);
+
+When doing PU learning, given our set, which is PN, and the unlabeled set U, we need to coordinate entity set expansion, i.e. extraction of those elements in U that are likely to be members of P.
+
+All of our methods rely on creating a feature matrix containing all of these - it can be sparse until algorithm running time, that's fine. The sensible thing to do is write a method that will create the data required for using our SSL methods. prepareData is not suitable, we basically need something like its inverse: 
+
+Take two sets - join those elements with first sets labeled 1, with the last set, which has all entries labeled 0.
+
+
+First redux 10%, Second redux 33%, Third redux 80%
+
+Constructing the redux sets of Reuters - general pattern for any, just change numbers - can even adapt this/parametarise for later:
+
+
+ PosSet = randsample(1:2673, 2137);
+ PosSet = sort(PosSet);
+ NegSet =  randsample(2674:5946, 2616);
+ NegSet = sort(NegSet);
+ [redux3_ReutersFM, redux3_ReutersLabels] = prepareData(ReutersTrainFM, PosSet, NegSet, ReutersTrainLabels);
+ redux3_ReutersLabels = redux3_ReutersLabels';
+ unlabeledset = ones(1, 5946);
+ unlabeledset(PosSet) = 0;
+ unlabeledset(NegSet) = 0;
+ uset = LabelToArray(unlabeledset);
+ redux3_ReutersUnlabeledFM(1:1193,:) = ReutersTrainFM(uset, :);
+ redux3_ReutersUnlabeledLabels(1:1193) = ReutersTrainLabels(uset);
+ redux3_ReutersUnlabeledLabels = redux3_ReutersUnlabeledLabels';
+
+Sanity check: sum(sum(redux1_ReutersUnlabeledFM)) + sum(sum(redux1_ReutersFM)) - sum(sum(ReutersTrainFM))
+% can do the same for labels
+
+
+To apply any of the 3 SSL methods, we need to extract the positive set and the mixed set, and then give it to the algorithm, look at subsequent classification, identify new positives
+
+
+Bug in augment - returns entries larger than existing ones in spyEM!!!
+This was due to reuters not being actually binarized - it contained up to 41!
+
+
+
+
+
+
+Implementing the whole data augmentation assessing system:
+
+Input: Train, Test Feature Matrix & Labels, kkt_threshold, bias(how much we want to change the ratio of positives to negatives in the redux sets, 1 is the same, 2 means double positives, 0.5 double negatives.
+
+
+Step1: Create redux sets (0.1, 0.33, 0.8), with associated FM and Labels to train, as well as keeping true labels of the augmented set!
+
+Step2: Train SVM on full Train, redux1-redux3, and store all the results.
+
+Step3: Create augSet[i,j], each of which will be an augmentation of i-th set, using j-th algorithm. j = 1 - Bayes, 2 - SEM, 3 - RocSVM.
+
+Step4: Train SVM on each of the augSets, return triple (p,r,fsc) for each (i,j).
+
+Output: Performance(p,r,fsc) of SVM on Train, as well as aug[i,j]: performance of j-th algo on i-th redux. aug2 - PU quality of [i,j], i.e. what the precision and recall (or precision@SEM) is for that entity set expansion.
+
+
+% a question remains: when we identify the set of new positives, how do we measure its precision and recall?? In PU papers, they take the final classifier and measure its performance, i.e. the precision, recall. 
+
+I want to see, out of the REMAINING POSTIIVES, how many the algorithm receives 
+(recall), and out of the ones retrieved, how many actually are positives (precision). This doesn't take those we already knew into account. 
+
+How am I adding the new positives? This will require creating yet another very large matrix, that is redux10FM + those positives. Done
+
+Now, I need to change the maxiteration condition in the SVM running, as well as change how the p,r,f are outputed

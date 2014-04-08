@@ -1,0 +1,75 @@
+NB example: 
+
+First, import 20 news dataset into Matlab. Then: 
+
+doc = (double(documents))' ;
+>> NBClassifier  = NaiveBayes.fit(doc, newsgroups);
+Error using NaiveBayes.fit>gaussianFit (line 486)
+The within-class variance in each feature of TRAINING must be positive. The within-class variance in feature 4 40 47 51 60
+72 94 in class 1 are not positive.
+
+Error in NaiveBayes.fit (line 450)
+            obj = gaussianFit(obj, training, gindex);
+ 
+>> NBClassifier  = NaiveBayes.fit(doc, newsgroups, 'Distribution', 'mn');
+>> classes = NBClassifier.predict(doc);
+>> cMat = confusionmat(newsgroups, classes)
+
+cMat =
+
+        4169          69         142         225
+         326        2669         108         416
+         638         113        1419         487
+         245         107         249        4860
+
+>> for i = 1:4 
+recall(i) = cMat(i,i) / sum(cMat(i,:))
+end
+
+recall =
+
+    0.9053
+
+
+recall =
+
+    0.9053    0.7585
+
+
+recall =
+
+    0.9053    0.7585    0.5341
+
+
+recall =
+
+    0.9053    0.7585    0.5341    0.8899
+
+>> for i = 1:4 
+precision(i) = cMat(i,i) / sum(cMat(:,i));
+end
+>> precision
+
+precision =
+
+    0.7752    0.9023    0.7398    0.8116
+
+>> recallT = mean(recall)
+
+recallT =
+
+    0.7719
+
+>> precT = mean(precision)
+
+precT =
+
+    0.8072
+
+>> fscore = 2 * precT * recallT / ( precT + recallT )
+
+fscore =
+
+    0.7892
+
+>> 

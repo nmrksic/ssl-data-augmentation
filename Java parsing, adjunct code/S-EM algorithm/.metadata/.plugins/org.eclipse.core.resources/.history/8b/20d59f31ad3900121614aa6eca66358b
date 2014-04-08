@@ -1,0 +1,37 @@
+import net.sf.classifier4J.ClassifierException;
+import net.sf.classifier4J.bayesian.BayesianClassifier;
+import net.sf.classifier4J.bayesian.SimpleWordsDataSource;
+import net.sf.classifier4J.bayesian.WordsDataSourceException;
+
+
+public class SEM {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		SimpleWordsDataSource swds = new SimpleWordsDataSource();
+		
+		swds.addMatch("China");
+		swds.addMatch("Japan");
+
+		swds.addMatch("HK");
+		swds.addMatch("NYC");
+		swds.addMatch("London");
+		swds.addMatch("Zurich");
+
+
+		BayesianClassifier bc = new BayesianClassifier(swds);
+		
+		try {
+			System.out.println(bc.classify("aa"));
+		} catch (WordsDataSourceException e) {
+			e.printStackTrace();
+		} catch (ClassifierException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}

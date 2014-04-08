@@ -1,0 +1,598 @@
+starting algorithm
+Sequential Minimal Optimization status:
+Number of iterations: 500
+Value of stopping criterion: 1.838923
+Value of objective function: 0.101933
+---------------------------
+Sequential Minimal Optimization status:
+Number of iterations: 1000
+Value of stopping criterion: 0.911944
+Value of objective function: 0.117935
+---------------------------
+Sequential Minimal Optimization status:
+Number of iterations: 1500
+Value of stopping criterion: 0.392322
+Value of objective function: 0.120755
+---------------------------
+Sequential Minimal Optimization status:
+Number of iterations: 2000
+Value of stopping criterion: 0.143970
+Value of objective function: 0.121174
+---------------------------
+Sequential Minimal Optimization status:
+Number of iterations: 2500
+Value of stopping criterion: 0.055076
+Value of objective function: 0.121235
+---------------------------
+Sequential Minimal Optimization status:
+Number of iterations: 3000
+Value of stopping criterion: 0.022549
+Value of objective function: 0.121244
+---------------------------
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 3296
+Value of stopping criterion: 0.000704
+Value of objective function: 0.121245
+---------------------------
+
+ans =
+
+    0.9601    0.8935    0.9256
+
+trained full train
+starting redux creation with sample= 
+
+sample =
+
+    0.1000
+
+done creating redux
+starting data augmentation
+
+ps =
+
+   143     1
+
+
+us =
+
+           1        3965
+
+
+diff =
+
+     3
+
+negatives not empty, all good
+augmented sem
+augmented bayes
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 2550
+Value of stopping criterion: 0.000916
+Value of objective function: 0.026867
+---------------------------
+
+ans =
+
+   918     1
+
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 2643
+Value of stopping criterion: 0.000746
+Value of objective function: 0.028979
+---------------------------
+
+ans =
+
+   138     1
+
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 2584
+Value of stopping criterion: 0.000881
+Value of objective function: 0.029630
+---------------------------
+
+ans =
+
+    18     1
+
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 2585
+Value of stopping criterion: 0.000858
+Value of objective function: 0.029805
+---------------------------
+
+ans =
+
+     5     1
+
+Using the final classifier. SVM iterations converged with 1
+augmented rocsvm
+starting data augmentation
+
+ps =
+
+        2673           1
+
+
+us =
+
+           1        1435
+
+negatives not empty, all good
+augmented sem
+augmented bayes
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 2894
+Value of stopping criterion: 0.000570
+Value of objective function: 0.121245
+---------------------------
+
+ans =
+
+     3     1
+
+Using the final classifier. SVM iterations converged with 1
+augmented rocsvm
+augmented redux10
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 631
+Value of stopping criterion: 0.000957
+Value of objective function: 0.040543
+---------------------------
+
+ans =
+
+    0.9631    0.6742    0.7932
+
+trained SVM redux10
+bayes10 test set made
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 19291
+Value of stopping criterion: 0.000974
+Value of objective function: 103.749054
+---------------------------
+
+ans =
+
+    0.4512    0.8726    0.5948
+
+bayes redux10 done
+sem10 test set made
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 37704
+Value of stopping criterion: 0.000853
+Value of objective function: 75.710854
+---------------------------
+
+ans =
+
+    0.8338    0.9871    0.9040
+
+sem redux10 done
+rocSVM10 test set made
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 805
+Value of stopping criterion: 0.000365
+Value of objective function: 0.051279
+---------------------------
+
+ans =
+
+    0.9602    0.7774    0.8592
+
+rocsvm redux10 done
+starting redux33
+starting redux creation with sample= 
+
+sample =
+
+    0.3300
+
+done creating redux
+starting data augmentation
+
+ps =
+
+   473     1
+
+
+us =
+
+           1        3635
+
+
+diff =
+
+    21
+
+negatives not empty, all good
+augmented sem
+augmented bayes
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 2975
+Value of stopping criterion: 0.000595
+Value of objective function: 1.251903
+---------------------------
+
+ans =
+
+   408     1
+
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 3433
+Value of stopping criterion: 0.000777
+Value of objective function: 1.243891
+---------------------------
+
+ans =
+
+   143     1
+
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 3694
+Value of stopping criterion: 0.000542
+Value of objective function: 1.244352
+---------------------------
+
+ans =
+
+    74     1
+
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 3312
+Value of stopping criterion: 0.000788
+Value of objective function: 1.246346
+---------------------------
+
+ans =
+
+    36     1
+
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 28364
+Value of stopping criterion: 0.000894
+Value of objective function: 1.249604
+---------------------------
+
+ans =
+
+    27     1
+
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 36136
+Value of stopping criterion: 0.000732
+Value of objective function: 1.250660
+---------------------------
+
+ans =
+
+     9     1
+
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 3638
+Value of stopping criterion: 0.000409
+Value of objective function: 1.249695
+---------------------------
+
+ans =
+
+     9     1
+
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 3977
+Value of stopping criterion: 0.000715
+Value of objective function: 1.248433
+---------------------------
+
+ans =
+
+     6     1
+
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 3748
+Value of stopping criterion: 0.000878
+Value of objective function: 1.249544
+---------------------------
+
+ans =
+
+     5     1
+
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 3749
+Value of stopping criterion: 0.000995
+Value of objective function: 1.248967
+---------------------------
+
+ans =
+
+     1     1
+
+Using the final classifier. SVM iterations converged with 1
+augmented rocsvm
+starting data augmentation
+
+ps =
+
+        2673           1
+
+
+us =
+
+           1        1435
+
+negatives not empty, all good
+augmented sem
+augmented bayes
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 2605
+Value of stopping criterion: 0.000876
+Value of objective function: 0.121245
+---------------------------
+
+ans =
+
+     2     1
+
+Using the final classifier. SVM iterations converged with 1
+augmented rocsvm
+augmented redux33
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 1512
+Value of stopping criterion: 0.000911
+Value of objective function: 0.068560
+---------------------------
+
+ans =
+
+    0.9331    0.7871    0.8539
+
+svm redux33 done
+bayes set33 made
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 487305
+Value of stopping criterion: 0.000979
+Value of objective function: 399.357758
+---------------------------
+
+ans =
+
+    0.5827    0.8919    0.7049
+
+bayes svm33 done
+sem sem33 set done
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 191415
+Value of stopping criterion: 0.000842
+Value of objective function: 303.582611
+---------------------------
+
+ans =
+
+    0.8569    0.9371    0.8952
+
+sem33 svm done
+rocSVM33 test set made
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 1711
+Value of stopping criterion: 0.000926
+Value of objective function: 5.514768
+---------------------------
+
+ans =
+
+    0.9316    0.8129    0.8682
+
+rocSVM redux33 done
+starting redux creation with sample= 
+
+sample =
+
+    0.8000
+
+done creating redux
+starting data augmentation
+
+ps =
+
+        1148           1
+
+
+us =
+
+           1        2960
+
+
+diff =
+
+     4
+
+negatives not empty, all good
+augmented sem
+augmented bayes
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 3247
+Value of stopping criterion: 0.000713
+Value of objective function: 2.953876
+---------------------------
+
+ans =
+
+   123     1
+
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 3463
+Value of stopping criterion: 0.000882
+Value of objective function: 2.953076
+---------------------------
+
+ans =
+
+    12     1
+
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 3453
+Value of stopping criterion: 0.000908
+Value of objective function: 2.948857
+---------------------------
+
+ans =
+
+     2     1
+
+Using the final classifier. SVM iterations converged with 1
+augmented rocsvm
+starting data augmentation
+
+ps =
+
+        2673           1
+
+
+us =
+
+           1        1435
+
+negatives not empty, all good
+augmented sem
+augmented bayes
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 2605
+Value of stopping criterion: 0.000876
+Value of objective function: 0.121245
+---------------------------
+
+ans =
+
+     2     1
+
+Using the final classifier. SVM iterations converged with 1
+augmented rocsvm
+augmentation80 done
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 2708
+Value of stopping criterion: 0.000759
+Value of objective function: 0.110620
+---------------------------
+
+ans =
+
+    0.9545    0.8790    0.9152
+
+redux80 svm done
+bayes80 test set made
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 2262353
+Value of stopping criterion: 0.000032
+Value of objective function: 1232.768311
+---------------------------
+
+ans =
+
+    0.8245    0.8790    0.8509
+
+bayes svm done
+sem80 set made
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 3656093
+Value of stopping criterion: 0.000843
+Value of objective function: 1188.589111
+---------------------------
+
+ans =
+
+    0.9248    0.9129    0.9188
+
+sem80 svm done
+RocSVM80 test set made
+Sequential Minimal Optimization method finished.
+Sequential Minimal Optimization status:
+Number of iterations: 36288
+Value of stopping criterion: 0.000553
+Value of objective function: 48.086620
+---------------------------
+
+ans =
+
+    0.9430    0.9065    0.9243
+
+RocSVM redux80 done
+
+ResultsBayes =
+
+    0.9631    0.6742    0.7932
+    0.4512    0.8726    0.5948
+    0.9331    0.7871    0.8539
+    0.5827    0.8919    0.7049
+    0.9545    0.8790    0.9152
+    0.8245    0.8790    0.8509
+    0.9601    0.8935    0.9256
+
+
+ResultsSEM =
+
+    0.9631    0.6742    0.7932
+    0.8338    0.9871    0.9040
+    0.9331    0.7871    0.8539
+    0.8569    0.9371    0.8952
+    0.9545    0.8790    0.9152
+    0.9248    0.9129    0.9188
+    0.9601    0.8935    0.9256
+  - probably due to removing overlap before extending results in further improvements, not just more
+negatives
+
+ResultsRocSVM =
+
+    0.9631    0.6742    0.7932
+    0.9602    0.7774    0.8592
+    0.9331    0.7871    0.8539
+    0.9316    0.8129    0.8682
+    0.9545    0.8790    0.9152
+    0.9430    0.9065    0.9243
+    0.9601    0.8935    0.9256
+
+
+entitySetExpansionQuality =
+
+    0.6618    0.9923    0.7941
+    0.6608    0.9907    0.7928
+    1.0000    0.0673    0.1262
+    0.5918    0.9948    0.7421
+    0.5915    0.9948    0.7419
+    0.9400    0.2443    0.3878
+    0.2815    0.9895    0.4383
+    0.2829    0.9965    0.4407
+    0.8615    0.7805    0.8190
